@@ -1,0 +1,36 @@
+.item {
+  position: relative;
+}
+.button {
+  padding: 10px;
+  margin-right: 10px;
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.deleteButton {
+  position: absolute;
+  z-index: 1000;
+  top: -4px;
+  right: 2px;
+  font-size: 0.5em;
+  padding: 3px 6px;
+  border-radius: 50%;
+  background-color: red;
+  color: white;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: all ease-in-out 0.2s;
+  &:hover {
+    opacity: 1;
+  }
+}
