@@ -18,11 +18,4 @@ with TelegramClient("session", api_id, api_hash) as client:
             message = event.message.text
             date = event.date
             link_for_message = f"https://t.me/{group_username}/{event.id}"
-            
-            print(f"Group ID: {group_id}\nGroup Username: {group_username}\n#############")
-            print(f"Date: {date}\nLink for Message: {link_for_message}\n#############")
-            print(f"User ID: {sender_id}\nUsername: {sender_username}\nMessage: {message}")
-            print("#################################")
-
-    print("Listening for new messages...")
     client.run_until_disconnected()

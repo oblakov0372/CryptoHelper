@@ -11,6 +11,7 @@ import Login from "./pages/login/Login";
 import Registration from "./pages/registration/Registration";
 import CryptoTracker from "./pages/cryptoTracker/CryptoTracker";
 import NotFoundPage from "./pages/notFoundPage/NotFoundPage";
+import OtcCRM from "./pages/otcCRM/OtcCRM";
 
 const App = () => {
   return (
@@ -27,6 +28,12 @@ const App = () => {
               <Route path="/cryptoTracker" element={<CryptoTracker />} />
               <Route path="/login" element={<Login />}></Route>
               <Route path="/registration" element={<Registration />}></Route>
+              <Route path="/otc_crm" element={<OtcCRM />}>
+                <Route index element={<h1>Messages</h1>} />
+                <Route path="messages" element={<h1>Messages</h1>} />
+                <Route path="accounting" element={<h1>Accounting</h1>} />
+                <Route path="deals" element={<h1>My Deals</h1>} />
+              </Route>
               <Route path="*" element={<NotFoundPage />}></Route>
             </Routes>
           </div>

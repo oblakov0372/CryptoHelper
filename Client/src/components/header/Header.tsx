@@ -51,7 +51,7 @@ const Header = () => {
       <div className={styles.navigation}>
         <ul className={styles.navigationUl}>
           <li>
-            <Link to={"/platforms"}>Tools</Link>
+            <Link to={"/platforms"}>Info</Link>
           </li>
           <li>
             <DropDownMenu

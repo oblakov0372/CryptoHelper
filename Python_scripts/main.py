@@ -20,7 +20,6 @@ def insert_message(telegram_group_id, telegram_group_username, sender_id, sender
         connection.commit()
     except Exception as e:
         print("Error while inserting into database:", e)
-        # Rollback the transaction if something goes wrong
         connection.rollback()
 
 
@@ -39,11 +38,6 @@ with TelegramClient("session", api_id, api_hash) as client:
             message = event.message.text
             date = event.date
             link_for_message = f"https://t.me/{telegram_group_id}/{event.id}"
-            
-            print(f"Group ID: {telegram_group_id}\nGroup Username: {telegram_group_username}")
-            print(f"Date: {date}\nLink for Message: {link_for_message}")
-            print(f"User ID: {sender_id}\nUsername: {sender_username}\nMessage: {message}")
-            print("#################################")
 
             insert_message(telegram_group_id, telegram_group_username, sender_id, sender_username, message,date, link_for_message)
     
