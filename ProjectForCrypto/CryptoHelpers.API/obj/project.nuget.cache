@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "3ru2/OGAOYAbv9Deos14KIuSLBewoTZ0MhEdwZNiY5m7bVFszz9LcVisze/6plDbuZQv2FKtBWy12TCE7aAM1Q==",
+  "dgSpecHash": "Hwz0KQILUQJStPNpn4TjPnIggYNan+sDKV8OMA5aVL5/fvoFWozAHoFccr62eK/blMuaGbiwW5DWYEuSHrwEow==",
   "success": true,
   "projectFilePath": "D:\\Developing\\Project\\ProjectForCrypto\\CryptoHelpers.API\\CryptoHelpers.API.csproj",
   "expectedPackageFiles": [
@@ -78,7 +78,11 @@
     "C:\\Users\\demao\\.nuget\\packages\\system.text.json\\7.0.0\\system.text.json.7.0.0.nupkg.sha512",
     "C:\\Users\\demao\\.nuget\\packages\\system.threading.tasks\\4.3.0\\system.threading.tasks.4.3.0.nupkg.sha512",
     "C:\\Users\\demao\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
-    "C:\\Users\\demao\\.nuget\\packages\\system.windows.extensions\\5.0.0\\system.windows.extensions.5.0.0.nupkg.sha512"
+    "C:\\Users\\demao\\.nuget\\packages\\system.windows.extensions\\5.0.0\\system.windows.extensions.5.0.0.nupkg.sha512",
+    "C:\\Users\\demao\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.21\\microsoft.windowsdesktop.app.ref.6.0.21.nupkg.sha512",
+    "C:\\Users\\demao\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.21\\microsoft.netcore.app.ref.6.0.21.nupkg.sha512",
+    "C:\\Users\\demao\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.21\\microsoft.aspnetcore.app.ref.6.0.21.nupkg.sha512",
+    "C:\\Users\\demao\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.21\\microsoft.netcore.app.host.win-x64.6.0.21.nupkg.sha512"
   ],
   "logs": []
 }

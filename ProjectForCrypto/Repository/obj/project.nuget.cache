@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "le3VDKkdtJwOH0HRlrao9iBImEU3zCbA5+65SKhgYTpku1c/a+e4c7VCxhXCXK1O+YOIIts4/kyhoT6mw74FQw==",
+  "dgSpecHash": "oJ23W3EXKe7gJiP7XiVkeabV2QzJeUg8bfbHImfjLmojS5XDLD7uE7kq65DoEaB9QMZWGS3uLa7b4TH3L0/Ndw==",
   "success": true,
   "projectFilePath": "D:\\Developing\\Project\\ProjectForCrypto\\Repository\\Repository.csproj",
   "expectedPackageFiles": [
@@ -65,7 +65,10 @@
     "C:\\Users\\demao\\.nuget\\packages\\system.text.json\\4.7.2\\system.text.json.4.7.2.nupkg.sha512",
     "C:\\Users\\demao\\.nuget\\packages\\system.threading.tasks\\4.3.0\\system.threading.tasks.4.3.0.nupkg.sha512",
     "C:\\Users\\demao\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
-    "C:\\Users\\demao\\.nuget\\packages\\system.windows.extensions\\5.0.0\\system.windows.extensions.5.0.0.nupkg.sha512"
+    "C:\\Users\\demao\\.nuget\\packages\\system.windows.extensions\\5.0.0\\system.windows.extensions.5.0.0.nupkg.sha512",
+    "C:\\Users\\demao\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.21\\microsoft.windowsdesktop.app.ref.6.0.21.nupkg.sha512",
+    "C:\\Users\\demao\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.21\\microsoft.netcore.app.ref.6.0.21.nupkg.sha512",
+    "C:\\Users\\demao\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.21\\microsoft.aspnetcore.app.ref.6.0.21.nupkg.sha512"
   ],
   "logs": []
 }
