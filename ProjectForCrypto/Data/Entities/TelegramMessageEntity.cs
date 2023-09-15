@@ -20,6 +20,19 @@ namespace Data.Entities
         public DateTime Date { get; set; }
         [Column("link_for_message")]
         public string? LinkForMessage { get; set; }
+        private string? _type;
+        [Column("Type")]
+        public string? Type
+        {
+            get
+            {
+                return _type ?? "None";
+            }
+            set
+            {
+                _type = value;
+            }
+        }
 
     }
 }
