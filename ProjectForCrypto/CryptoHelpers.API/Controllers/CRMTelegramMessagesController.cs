@@ -18,6 +18,7 @@ namespace CryptoHelpers.API.Controllers
         public async Task<IActionResult> GetTelegramMessages()
         {
             List<TelegramMessageEntity> telegramMessages = await _context.TelegramMessages.ToListAsync();
+            telegramMessages.Reverse();
             return Ok(telegramMessages);
         }
 

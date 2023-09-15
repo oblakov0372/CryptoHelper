@@ -12,7 +12,7 @@ import Registration from "./pages/registration/Registration";
 import CryptoTracker from "./pages/cryptoTracker/CryptoTracker";
 import NotFoundPage from "./pages/notFoundPage/NotFoundPage";
 import OtcCRM from "./pages/otcCRM/OtcCRM";
-import CrmMessagesTable from "./components/crmMessagesTable/CrmMessagesTable";
+import OtcCRMMessages from "./pages/otcCRM/otcCRMMessages/otcCRMMessages";
 
 const App = () => {
   return (
@@ -30,7 +30,7 @@ const App = () => {
               <Route path="/login" element={<Login />}></Route>
               <Route path="/registration" element={<Registration />}></Route>
               <Route path="/otc_crm" element={<OtcCRM />}>
-                <Route path="messages" element={<CrmMessagesTable />} />
+                <Route path="messages" element={<OtcCRMMessages />} />
                 <Route path="accounting" element={<h1>Accounting</h1>} />
                 <Route path="deals" element={<h1>My Deals</h1>} />
               </Route>
