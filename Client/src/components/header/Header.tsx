@@ -30,7 +30,7 @@ const Header = () => {
     { link: "/cryptocurrencies", name: "Cryptocurrencies" },
     { link: "/tradesTracker", name: "Trades Tracker" },
     { link: "/cryptoTracker", name: "Crypto Tracker" },
-    { link: "/otc_crm", name: "OTC CRM" },
+    { link: "/otc_crm/messages", name: "OTC CRM" },
   ];
 
   useEffect(() => {
