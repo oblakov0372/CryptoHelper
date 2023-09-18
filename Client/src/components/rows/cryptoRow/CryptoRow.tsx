@@ -1,10 +1,10 @@
 import React from "react";
 import { CryptoType } from "../../../types/CryptoType";
-import styles from "./CryptoRow.modules.scss";
 import { changeDecimal } from "../../../utils/Utils";
 
 const CryptoRow: React.FC<CryptoType> = ({
   cmcRank,
+  symbol,
   name,
   price,
   marketCap,

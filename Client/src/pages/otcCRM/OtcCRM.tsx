@@ -6,7 +6,7 @@ const OtcCRM = () => {
   return (
     <div className={styles.crmContainer}>
       <OtcCRMHeader />
-      <Outlet /> {/* Этот Outlet вставляет подстраницы */}
+      <Outlet />
     </div>
   );
 };

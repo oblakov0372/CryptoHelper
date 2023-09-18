@@ -98,6 +98,7 @@ const Cryptocurrencies = () => {
                 {coins?.map((coin: CryptoType) => (
                   <CryptoRow
                     key={coin.cmcRank}
+                    symbol={coin.symbol}
                     cmcRank={coin.cmcRank}
                     marketCap={coin.marketCap}
                     name={coin.name}

@@ -2,7 +2,7 @@
 {
     public abstract class QueryStringParameters
     {
-        const int maxPageSize = 50;
+        const int maxPageSize = 100;
         public int PageNumber { get; set; } = 1;
         private int pageSize = 30;
         public int PageSize
@@ -18,5 +18,6 @@
         }
 
         public string OrderBy { get; set; } = string.Empty;
+        public string SearchQuery { get; set; } = string.Empty;
     }
 }

@@ -53,7 +53,7 @@ with TelegramClient("session", api_id, api_hash) as client:
             else:
                 message_type = None
 
-            if should_save_message(message):
+            if should_save_message(message) and sender_username not in ("tvrn_help_bot", "shieldy_bot"):
                 insert_message(telegram_group_id, telegram_group_username, sender_id, sender_username, message, date, link_for_message, message_type)
     
     print("Listening for new messages...")

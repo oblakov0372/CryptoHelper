@@ -47,7 +47,7 @@ const CrmMessagesTable: React.FC<CrmMessageTableProperty> = ({
             >
               {telegramMessage.senderUsername && (
                 <span className="font-bold">
-                  @{telegramMessage.senderUsername}
+                  {telegramMessage.senderUsername}
                 </span>
               )}
               <span className="block font-medium ">
