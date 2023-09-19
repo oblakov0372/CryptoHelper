@@ -9,6 +9,7 @@ namespace Contracts
         IPortfolioRepository Portfolios { get; }
         ITransactionRepository Transactions { get; }
         IPortfolioTokenRepository PortfolioTokens { get; }
+        ITelegramUserRepository TelegramUsers { get; }
         Task SaveAsync();
     }
 }

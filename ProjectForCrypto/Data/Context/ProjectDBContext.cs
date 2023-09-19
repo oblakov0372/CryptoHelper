@@ -12,6 +12,7 @@ namespace Data.Context
         public DbSet<TransactionEntity> Trasnactions { get; set; }
         public DbSet<PortfolioTokenEntity> PortfolioTokens { get; set; }
         public DbSet<TelegramMessageEntity> TelegramMessages { get; set; }
+        public DbSet<TelegramUserEntity> TelegramUsers { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer("Server=OBLAKOV0372;Database=CryptoHelper;Trusted_Connection=True;TrustServerCertificate=True;");

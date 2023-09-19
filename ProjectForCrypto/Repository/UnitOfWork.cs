@@ -16,12 +16,14 @@ namespace Repository
             Portfolios = new PortfolioRepository(_context);
             Transactions = new TransactionRepository(_context);
             PortfolioTokens = new PortfolioTokenRepository(_context);
+            TelegramUsers = new TelegramUserRepository(_context);
         }
         public ITradeFutureRepository TradeFutures { get; private set; }
         public IUserRepository Users { get; private set; }
         public IPortfolioRepository Portfolios { get; private set; }
         public ITransactionRepository Transactions { get; private set; }
         public IPortfolioTokenRepository PortfolioTokens { get; private set; }
+        public ITelegramUserRepository TelegramUsers { get; private set; }
         public async Task SaveAsync()
         {
            await _context.SaveChangesAsync();
