@@ -30,7 +30,7 @@ def insert_user(user_id, username):
         try:
             cursor.execute(query, values)
             connection.commit()
-        except Exception as e:
+        except Exception as e: 
             print("Error while inserting into TelegramUsers table:", e)
             connection.rollback()
 

@@ -12,7 +12,8 @@ import Registration from "./pages/registration/Registration";
 import CryptoTracker from "./pages/cryptoTracker/CryptoTracker";
 import NotFoundPage from "./pages/notFoundPage/NotFoundPage";
 import OtcCRM from "./pages/otcCRM/OtcCRM";
-import OtcCRMMessages from "./pages/otcCRM/otcCRMMessages/otcCRMMessages";
+import OtcCRMMessages from "./pages/otcCRM/otcCRMMessages/OtcCRMMessages";
+import OtcCrmAccounting from "./pages/otcCRM/otcCrmAccounting/OtcCrmAccounting";
 
 const App = () => {
   return (
@@ -31,7 +32,7 @@ const App = () => {
               <Route path="/registration" element={<Registration />}></Route>
               <Route path="/otc_crm" element={<OtcCRM />}>
                 <Route path="messages" element={<OtcCRMMessages />} />
-                <Route path="accounting" element={<h1>Accounting</h1>} />
+                <Route path="accounting" element={<OtcCrmAccounting />} />
                 <Route path="deals" element={<h1>My Deals</h1>} />
               </Route>
               <Route path="*" element={<NotFoundPage />}></Route>

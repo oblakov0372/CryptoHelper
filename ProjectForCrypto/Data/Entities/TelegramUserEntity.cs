@@ -5,7 +5,6 @@ namespace Data.Entities
 {
     public enum Status
     {
-        None,
         Scamer,
         Reseller 
     }

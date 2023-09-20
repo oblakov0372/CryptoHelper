@@ -14,7 +14,7 @@ const OtcCRMMessages = () => {
   const [isLoading, setIsLoading] = useState<Boolean>(true);
   const [messageType, setMessageType] = useState<string>("all");
   const [searchQuery, setSearchQuery] = useState<string>("");
-  const [pageSize, setPageSize] = useState<number>(20);
+  const [pageSize, setPageSize] = useState<number>(25);
   const [searchTimeout, setSearchTimeout] = useState<NodeJS.Timeout | null>(
     null
   );
@@ -48,8 +48,7 @@ const OtcCRMMessages = () => {
     fetchData();
   }, [messageType, currentPage, pageSize]);
 
-  const handleSearchQueryChange = (query: string) => {
-    setSearchQuery(query);
+  useEffect(() => {
     setCurrentPage(1);
 
     if (searchTimeout) {
@@ -61,7 +60,7 @@ const OtcCRMMessages = () => {
     }, 700);
 
     setSearchTimeout(newSearchTimeout);
-  };
+  }, [searchQuery]);
 
   const handleMessageTypeChange = (type: any) => {
     setMessageType(type);
@@ -87,7 +86,7 @@ const OtcCRMMessages = () => {
               type="text"
               placeholder="Search..."
               value={searchQuery}
-              onChange={(e) => handleSearchQueryChange(e.target.value)}
+              onChange={(e) => setSearchQuery(e.target.value)}
             />
             <div className="bg-black block text-center py-4">
               <label className="mr-2">ALL/WTS/WTB</label>
