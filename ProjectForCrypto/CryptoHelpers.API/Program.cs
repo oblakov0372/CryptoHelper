@@ -1,6 +1,7 @@
 using ApplicationService.implementations.CryptoTracker.Portfolio;
 using ApplicationService.implementations.CryptoTracker.PortfolioTokenManagement;
 using ApplicationService.implementations.CryptoTracker.TransactionManagement;
+using ApplicationService.implementations.TelegramMessagesManagement;
 using ApplicationService.implementations.TelegramUserManagement;
 using ApplicationService.implementations.TradeFututreManagement;
 using ApplicationService.implementations.UserManagement;
@@ -60,7 +61,8 @@ builder.Services.AddScoped<IPortfolioManagementService,PortfolioManagementServic
 builder.Services.AddScoped<ITransactionManagementService, TransactionManagementService>();
 builder.Services.AddScoped<IPortfolioTokenManagementService,PortfolioTokenManagementService>();
 builder.Services.AddScoped<ICryptoCollectorManagementService,CryptoCollectorManagementService>();
-builder.Services.AddScoped<ITelegramUserService,TelegramUserService>();
+builder.Services.AddScoped<ITelegramUserManagementService,TelegramUserManagementService>();
+builder.Services.AddScoped<ITelegramMessagesManagementService, TelegramMessagesManagementService>();
 builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
 
 #endregion

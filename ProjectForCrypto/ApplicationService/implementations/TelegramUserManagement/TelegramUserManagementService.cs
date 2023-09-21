@@ -4,10 +4,10 @@ using Data.Entities;
 
 namespace ApplicationService.implementations.TelegramUserManagement
 {
-    public class TelegramUserService : ITelegramUserService
+    public class TelegramUserManagementService : ITelegramUserManagementService
     {
         private readonly IUnitOfWork _unitOfWork;
-        public TelegramUserService(IUnitOfWork unitOfWork)
+        public TelegramUserManagementService(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }
@@ -22,5 +22,7 @@ namespace ApplicationService.implementations.TelegramUserManagement
         {
             throw new NotImplementedException();
         }
+
+        //public async Task<List<TelegramMessageEntity>>
     }
 }

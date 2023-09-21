@@ -1,12 +1,9 @@
-﻿using CryptoHelpers.API.Models;
+﻿using ApplicationService.implementations.TelegramMessagesManagement;
+using CryptoHelpers.API.Models;
 using Data.Context;
-using Data.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Newtonsoft.Json.Linq;
-using System;
-using System.Linq;
-using System.Threading.Tasks;
+
 
 namespace CryptoHelpers.API.Controllers
 {
@@ -14,35 +11,35 @@ namespace CryptoHelpers.API.Controllers
     [ApiController]
     public class CRMTelegramMessagesController : BaseContoller
     {
-        private readonly ProjectDBContext _context;
+        private readonly ITelegramMessagesManagementService _telegramMessagesManagementService;
 
-        public CRMTelegramMessagesController(ProjectDBContext context)
+        public CRMTelegramMessagesController(ITelegramMessagesManagementService telegramMessagesManagementService)
         {
-            _context = context;
+           _telegramMessagesManagementService = telegramMessagesManagementService;
         }
         [HttpGet]
         public async Task<IActionResult> GetTelegramMessages([FromQuery] TelegramMessagesParameters parameters)
         {
-            var query = _context.TelegramMessages.AsQueryable();
+            var allTelegramMessages = await _telegramMessagesManagementService.GetAllTelegramMessagesAsync();
 
             if (!string.Equals(parameters.MessageType, "all", StringComparison.OrdinalIgnoreCase))
             {
-                query = query.Where(m => m.Type == parameters.MessageType);
+                allTelegramMessages = allTelegramMessages.Where(m => m.Type == parameters.MessageType).ToList();
             }
 
             if (!string.IsNullOrEmpty(parameters.SearchQuery))
             {
-                query = query.Where(m => m.Message.Contains(parameters.SearchQuery));
+                allTelegramMessages = allTelegramMessages.Where(m => m.Message.Contains(parameters.SearchQuery)).ToList();
             }
 
-            var totalCount = await query.CountAsync();
+            var totalCount = allTelegramMessages.Count();
             var totalPages = (int)Math.Ceiling((double)totalCount / parameters.PageSize);
 
-            var telegramMessages = await query
+            var telegramMessages = allTelegramMessages
                 .OrderByDescending(m => m.Date)
                 .Skip((parameters.PageNumber - 1) * parameters.PageSize)
                 .Take(parameters.PageSize)
-                .ToListAsync();
+                .ToList();
 
             return Ok(new { telegramMessages, countPages = totalPages });
         }

@@ -8,9 +8,9 @@ namespace CryptoHelpers.API.Controllers
     [ApiController]
     public class TelegramUsersController : BaseContoller
     {
-        private readonly ITelegramUserService _telegramUserService;
+        private readonly ITelegramUserManagementService _telegramUserService;
 
-        public TelegramUsersController(ITelegramUserService telegramUserService)
+        public TelegramUsersController(ITelegramUserManagementService telegramUserService)
         {
             _telegramUserService = telegramUserService;
         }
