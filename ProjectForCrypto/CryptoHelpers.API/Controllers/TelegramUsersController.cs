@@ -1,9 +1,6 @@
 ﻿using ApplicationService.implementations.TelegramUserManagement;
-using Contracts;
 using CryptoHelpers.API.Models;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace CryptoHelpers.API.Controllers
 {

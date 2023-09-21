@@ -14,6 +14,7 @@ import NotFoundPage from "./pages/notFoundPage/NotFoundPage";
 import OtcCRM from "./pages/otcCRM/OtcCRM";
 import OtcCRMMessages from "./pages/otcCRM/otcCRMMessages/OtcCRMMessages";
 import OtcCrmAccounting from "./pages/otcCRM/otcCrmAccounting/OtcCrmAccounting";
+import TelegramAccount from "./pages/telegramAccount/TelegramAccount";
 
 const App = () => {
   return (
@@ -34,6 +35,10 @@ const App = () => {
                 <Route path="messages" element={<OtcCRMMessages />} />
                 <Route path="accounting" element={<OtcCrmAccounting />} />
                 <Route path="deals" element={<h1>My Deals</h1>} />
+                <Route
+                  path="accounting/:telegramAccountId"
+                  element={<TelegramAccount />}
+                />
               </Route>
               <Route path="*" element={<NotFoundPage />}></Route>
             </Routes>

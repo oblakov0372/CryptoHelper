@@ -112,7 +112,11 @@ const Cryptocurrencies = () => {
           </div>
         )}
       </div>
-      <Pagination countPages={countPages} onChangePage={setCurrentPage} />
+      <Pagination
+        countPages={countPages}
+        onChangePage={setCurrentPage}
+        currentPage={currentPage - 1}
+      />
     </div>
   );
 };

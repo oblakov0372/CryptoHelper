@@ -1,5 +1,6 @@
 import React from "react";
 import { TelegramAccountLite } from "../../types/TelegramAccountLite";
+import { Link } from "react-router-dom";
 
 type CrmTelegramAccountingTableProperty = {
   telegramAccounting: TelegramAccountLite[];
@@ -20,8 +21,15 @@ const CrmAccountingTable: React.FC<CrmTelegramAccountingTableProperty> = ({
       <tbody>
         {telegramAccounting.map((telegramAccount: TelegramAccountLite) => (
           <tr key={telegramAccount.id} className="border-b border-gray-400">
-            <td className="font-extrabold px-3 py-2">{telegramAccount.id}</td>
-            <td className="font-semibold px-3 py-2">
+            <td className="font-extrabold px-3 py-2 cursor-pointer ">
+              <Link
+                to={`${telegramAccount.id}`}
+                className="text-blue-500 hover:text-blue-700"
+              >
+                {telegramAccount.id}
+              </Link>
+            </td>
+            <td className="font-semibold px-3 py-2 ">
               {telegramAccount.telegramUsername !== null
                 ? telegramAccount.telegramUsername
                 : "None"}

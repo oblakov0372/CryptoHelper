@@ -105,6 +105,7 @@ const OtcCRMMessages = () => {
           <div className="flex justify-between items-center">
             {countPages > 1 && (
               <Pagination
+                currentPage={currentPage - 1}
                 countPages={countPages}
                 onChangePage={setCurrentPage}
               />
