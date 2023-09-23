@@ -5,9 +5,17 @@ import re
 api_id = 22332340
 api_hash = "e054c9c8b94d7737b5121aaf72399ed7"
 
-server = 'OBLAKOV0372'
-database = 'CryptoHelper'
-connection_string = f"Driver=ODBC Driver 17 for SQL Server;Server={server};Database={database};Trusted_Connection=yes;"
+connection_string = (
+    "Driver={ODBC Driver 17 for SQL Server};"
+    "Server=tcp:oblakovsqlserver.database.windows.net,1433;"
+    "Database=CryptoHelper;"
+    "Uid=oblakovadmin;"
+    "Pwd=DemaOblak1#;"
+    "Encrypt=yes;"
+    "TrustServerCertificate=no;"
+    "MultipleActiveResultSets=no;"
+    "Connection Timeout=30;"
+)
 
 connection = pyodbc.connect(connection_string)
 cursor = connection.cursor()
@@ -59,7 +67,7 @@ with TelegramClient("session", api_id, api_hash) as client:
         sender_username = user.username
         message = event.message.text
         date = datetime.now()
-        link_for_message = f"https://t.me/{telegram_group_id}/{event.id}"
+        link_for_message = f"https://t.me/{telegram_group_username}/{event.id}"
         
         # Проверяем, содержит ли сообщение ключевые слова "wts" или "wtb"
         if "wts" in message.lower():

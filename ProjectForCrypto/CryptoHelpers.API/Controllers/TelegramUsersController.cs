@@ -1,4 +1,5 @@
-﻿using ApplicationService.implementations.TelegramUserManagement;
+﻿using ApplicationService.DTOs;
+using ApplicationService.implementations.TelegramUserManagement;
 using CryptoHelpers.API.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -43,6 +44,13 @@ namespace CryptoHelpers.API.Controllers
                 .ToList();
 
             return Ok(new { telegramUsers, countPages = totalPages });
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult GetTelegramUser(long id)
+        {
+            TelegramUserDto userDto = _telegramUserService.GetDataForTelegramUser(id);
+            return Ok(userDto);
         }
     }
 }

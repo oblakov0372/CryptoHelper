@@ -20,5 +20,11 @@ namespace ApplicationService.implementations.TelegramMessagesManagement
             var telegramMessages = await _unitOfWork.TelegramMessages.GetAllAsync();
             return telegramMessages.ToList();
         }
+
+        public List<TelegramMessageEntity> GetTelegramMessagesByUserId(long userId)
+        {
+            var telegramMessages = _unitOfWork.TelegramMessages.FindAsync(m => m.SenderId == userId);
+            return telegramMessages.ToList();
+        }
     }
 }
