@@ -2,20 +2,14 @@ import pyodbc
 from telethon.sync import TelegramClient, events
 from datetime import datetime
 import re
+import json
 api_id = 22332340
 api_hash = "e054c9c8b94d7737b5121aaf72399ed7"
 
-connection_string = (
-    "Driver={ODBC Driver 17 for SQL Server};"
-    "Server=tcp:oblakovsqlserver.database.windows.net,1433;"
-    "Database=CryptoHelper;"
-    "Uid=oblakovadmin;"
-    "Pwd=DemaOblak1#;"
-    "Encrypt=yes;"
-    "TrustServerCertificate=no;"
-    "MultipleActiveResultSets=no;"
-    "Connection Timeout=30;"
-)
+with open('config.json', 'r') as json_file:
+    config = json.load(json_file)
+
+connection_string = config["connection_string"]
 
 connection = pyodbc.connect(connection_string)
 cursor = connection.cursor()
