@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "oJ23W3EXKe7gJiP7XiVkeabV2QzJeUg8bfbHImfjLmojS5XDLD7uE7kq65DoEaB9QMZWGS3uLa7b4TH3L0/Ndw==",
+  "dgSpecHash": "5RkFgUL83kqYtkPtGA3sKs9hHMkwU/vIytqJJAO6h4OAJZQqFWn8d2oMl5eczu+KJs+n5+56jjfPyxtBkNXBgQ==",
   "success": true,
   "projectFilePath": "D:\\Developing\\Project\\ProjectForCrypto\\Repository\\Repository.csproj",
   "expectedPackageFiles": [
@@ -17,6 +17,7 @@
     "C:\\Users\\demao\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\7.0.5\\microsoft.entityframeworkcore.sqlserver.7.0.5.nupkg.sha512",
     "C:\\Users\\demao\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\7.0.0\\microsoft.extensions.caching.abstractions.7.0.0.nupkg.sha512",
     "C:\\Users\\demao\\.nuget\\packages\\microsoft.extensions.caching.memory\\7.0.0\\microsoft.extensions.caching.memory.7.0.0.nupkg.sha512",
+    "C:\\Users\\demao\\.nuget\\packages\\microsoft.extensions.configuration\\7.0.0\\microsoft.extensions.configuration.7.0.0.nupkg.sha512",
     "C:\\Users\\demao\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\7.0.0\\microsoft.extensions.configuration.abstractions.7.0.0.nupkg.sha512",
     "C:\\Users\\demao\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\7.0.0\\microsoft.extensions.dependencyinjection.7.0.0.nupkg.sha512",
     "C:\\Users\\demao\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\7.0.0\\microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512",

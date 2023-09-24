@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Hwz0KQILUQJStPNpn4TjPnIggYNan+sDKV8OMA5aVL5/fvoFWozAHoFccr62eK/blMuaGbiwW5DWYEuSHrwEow==",
+  "dgSpecHash": "M+jff8E07+LzYV5Apv0GSkwC5qvjQjSAAyKcHC97mtZ9rBawvCmWxPNnozemudU3jXZfqUh+tMzV/uK33my01g==",
   "success": true,
   "projectFilePath": "D:\\Developing\\Project\\ProjectForCrypto\\CryptoHelpers.API\\CryptoHelpers.API.csproj",
   "expectedPackageFiles": [
@@ -21,6 +21,7 @@
     "C:\\Users\\demao\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\demao\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\7.0.0\\microsoft.extensions.caching.abstractions.7.0.0.nupkg.sha512",
     "C:\\Users\\demao\\.nuget\\packages\\microsoft.extensions.caching.memory\\7.0.0\\microsoft.extensions.caching.memory.7.0.0.nupkg.sha512",
+    "C:\\Users\\demao\\.nuget\\packages\\microsoft.extensions.configuration\\7.0.0\\microsoft.extensions.configuration.7.0.0.nupkg.sha512",
     "C:\\Users\\demao\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\7.0.0\\microsoft.extensions.configuration.abstractions.7.0.0.nupkg.sha512",
     "C:\\Users\\demao\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\7.0.0\\microsoft.extensions.dependencyinjection.7.0.0.nupkg.sha512",
     "C:\\Users\\demao\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\7.0.0\\microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512",
