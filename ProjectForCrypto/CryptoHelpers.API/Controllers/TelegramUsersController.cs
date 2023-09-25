@@ -47,9 +47,9 @@ namespace CryptoHelpers.API.Controllers
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetTelegramUser(long id)
+        public async Task<IActionResult> GetTelegramUser(long id)
         {
-            TelegramUserDto userDto = _telegramUserService.GetDataForTelegramUser(id);
+            TelegramUserDto userDto = await _telegramUserService.GetDataForTelegramUserAsync(id);
             return Ok(userDto);
         }
     }

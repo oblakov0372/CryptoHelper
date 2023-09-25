@@ -1,5 +1,8 @@
 ﻿using Contracts;
+using CryptoCollector.API.Models;
+using CryptoCollector.API;
 using Data.Entities;
+using Microsoft.Extensions.Caching.Memory;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,20 +14,33 @@ namespace ApplicationService.implementations.TelegramMessagesManagement
     public class TelegramMessagesManagementService : ITelegramMessagesManagementService
     {
         private readonly IUnitOfWork _unitOfWork;
-        public TelegramMessagesManagementService(IUnitOfWork unitOfWork)
+        private readonly IMemoryCache _memoryCache;
+        public TelegramMessagesManagementService(IUnitOfWork unitOfWork, IMemoryCache memoryCache)
         {
+            _memoryCache = memoryCache;
             _unitOfWork = unitOfWork;
         }
         public async Task<List<TelegramMessageEntity>> GetAllTelegramMessagesAsync()
         {
-            var telegramMessages = await _unitOfWork.TelegramMessages.GetAllAsync();
-            return telegramMessages.ToList();
+            if (!_memoryCache.TryGetValue("TelegramMessages", out List<TelegramMessageEntity> values))
+            {
+                var telegramMessages = await _unitOfWork.TelegramMessages.GetAllAsync();
+
+                // Store the value in the cache for 10 minutes.
+                var cacheEntryOptions = new MemoryCacheEntryOptions()
+                    .SetAbsoluteExpiration(TimeSpan.FromMinutes(1));
+
+                _memoryCache.Set("TelegramMessages", telegramMessages, cacheEntryOptions);
+            }
+
+            return values.ToList();
         }
 
-        public List<TelegramMessageEntity> GetTelegramMessagesByUserId(long userId)
+        public async Task<List<TelegramMessageEntity>> GetTelegramMessagesByUserIdAsync(long userId)
         {
-            var telegramMessages = _unitOfWork.TelegramMessages.FindAsync(m => m.SenderId == userId);
-            return telegramMessages.ToList();
+            var allMessage = await GetAllTelegramMessagesAsync();
+
+            return allMessage.Where(m => m.SenderId == userId).ToList();
         }
     }
 }

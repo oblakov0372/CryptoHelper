@@ -8,6 +8,6 @@ namespace ApplicationService.implementations.TelegramUserManagement
     {
         Task<List<TelegramUserEntity>> GetAllTelegramUsersAsync();
         Task<bool> UpdateUserStatusAsync(int id, Status status);
-        TelegramUserDto GetDataForTelegramUser(long userId);
+        Task<TelegramUserDto> GetDataForTelegramUserAsync(long userId);
     }
 }

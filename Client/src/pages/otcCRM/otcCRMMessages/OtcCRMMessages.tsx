@@ -11,7 +11,7 @@ const OtcCRMMessages = () => {
   >([]);
   const [countPages, setCountPages] = useState<number>(0);
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const [isLoading, setIsLoading] = useState<Boolean>(true);
+  const [isLoadingMessages, setIsLoadingMessages] = useState<Boolean>(true);
   const [messageType, setMessageType] = useState<string>("all");
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [pageSize, setPageSize] = useState<number>(25);
@@ -36,15 +36,14 @@ const OtcCRMMessages = () => {
       });
       setTelegramMessages(response.data.telegramMessages);
       setCountPages(response.data.countPages);
-      setIsLoading(false);
+      setIsLoadingMessages(false);
     } catch (error) {
       console.error("Ошибка при получении данных:", error);
-      setIsLoading(false);
+      setIsLoadingMessages(false);
     }
   };
 
   useEffect(() => {
-    setIsLoading(true);
     fetchData();
   }, [messageType, currentPage, pageSize]);
 
@@ -74,7 +73,7 @@ const OtcCRMMessages = () => {
 
   return (
     <>
-      {isLoading ? (
+      {isLoadingMessages ? (
         <span className="block mt-10">
           <LoadingSpinner />
         </span>
@@ -101,7 +100,10 @@ const OtcCRMMessages = () => {
               </select>
             </div>
           </div>
-          <CrmMessagesTable telegramMessages={telegramMessages} />
+          <CrmMessagesTable
+            telegramMessages={telegramMessages}
+            lyteVersion={false}
+          />
           <div className="flex justify-between items-center">
             {countPages > 1 && (
               <Pagination

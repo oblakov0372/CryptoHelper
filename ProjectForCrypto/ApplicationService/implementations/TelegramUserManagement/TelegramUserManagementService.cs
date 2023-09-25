@@ -26,11 +26,11 @@ namespace ApplicationService.implementations.TelegramUserManagement
             throw new NotImplementedException();
         }
 
-        public TelegramUserDto GetDataForTelegramUser(long userId)
+        public async Task<TelegramUserDto> GetDataForTelegramUserAsync(long userId)
         {
             var userEntity = _unitOfWork.TelegramUsers.FindAsync(u => u.Id == userId).FirstOrDefault();
 
-            var telegramUserMessages = _telegramMessagesManagementService.GetTelegramMessagesByUserId(userId);
+            var telegramUserMessages = await _telegramMessagesManagementService.GetTelegramMessagesByUserIdAsync(userId);
             var telegramUserDto = new TelegramUserDto
             {
                 Id = userId,
@@ -42,7 +42,7 @@ namespace ApplicationService.implementations.TelegramUserManagement
                 CountMessagesWtb = telegramUserMessages.Where(message => message.Type.Equals("wtb")).Count(),
                 CountMessagesWts = telegramUserMessages.Where(message => message.Type.Equals("wts")).Count(),
                 LinkToUserTelegram = userEntity.TelegramUsername != null ? $"https://t.me/{userEntity.TelegramUsername}" : null,
-                LinkToFirstMessage = telegramUserMessages.First().LinkForMessage
+                LinkToFirstMessage = telegramUserMessages.First().LinkForMessage,
             };
             return telegramUserDto;
         }
