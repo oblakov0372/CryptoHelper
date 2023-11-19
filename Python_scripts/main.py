@@ -4,9 +4,6 @@ from datetime import datetime
 import re
 import json
 
-api_id = 22332340
-api_hash = "e054c9c8b94d7737b5121aaf72399ed7"
-
 with open('config.json', 'r') as json_file:
     config = json.load(json_file)
 
