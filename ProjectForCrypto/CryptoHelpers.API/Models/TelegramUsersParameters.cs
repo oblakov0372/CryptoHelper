@@ -4,7 +4,6 @@
     {
         public TelegramUsersParameters()
         {
-            PageNumber = 1;
         }
     }
 }

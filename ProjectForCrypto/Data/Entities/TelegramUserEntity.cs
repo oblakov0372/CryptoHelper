@@ -6,7 +6,9 @@ namespace Data.Entities
     public enum Status
     {
         Scamer,
-        Reseller 
+        Reseller,
+        InWork,
+        HavedDeal
     }
     [Table("TelegramUsers")]
     public class TelegramUserEntity

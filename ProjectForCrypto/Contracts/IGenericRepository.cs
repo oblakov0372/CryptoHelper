@@ -5,7 +5,7 @@ namespace Contracts
     public interface IGenericRepository<T> where T : class
     {
         
-        IEnumerable<T> FindAsync(Expression<Func<T, bool>> expression);
+        Task<IEnumerable<T>> FindAsync(Expression<Func<T, bool>> expression);
         Task<IEnumerable<T>> GetAllAsync();
         Task<T> GetByIdAsync(int id);
         Task AddAsync(T entity);

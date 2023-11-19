@@ -15,7 +15,7 @@ namespace ApplicationService.implementations.TradeFututreManagement
         public async Task<List<TradeFutureDto>> GetTradesAsync(int userId)
         {
             var trades = new List<TradeFutureDto>();
-            foreach (var trade in _unitOfWork.TradeFutures.FindAsync(t => t.UserId == userId))
+            foreach (var trade in await _unitOfWork.TradeFutures.FindAsync(t => t.UserId == userId))
             {
                 trades.Add(new TradeFutureDto
                 {
@@ -67,9 +67,9 @@ namespace ApplicationService.implementations.TradeFututreManagement
             }
         }
 
-        public async Task<bool> UpdateTradeAsync(TradeFutureUpdateModel model,int userId)
+        public async Task<bool> UpdateTradeAsync(TradeFutureUpdateModel model, int userId)
         {
-            TradeFutureEntity tradeForChange = _unitOfWork.TradeFutures.FindAsync(t => t.Id == model.Id).FirstOrDefault();
+            TradeFutureEntity tradeForChange = (await _unitOfWork.TradeFutures.FindAsync(t => t.Id == model.Id)).FirstOrDefault();
 
 
             if (tradeForChange == null)
@@ -89,7 +89,7 @@ namespace ApplicationService.implementations.TradeFututreManagement
                 await _unitOfWork.SaveAsync();
                 return true;
             }
-            catch 
+            catch
             {
                 return false;
             }

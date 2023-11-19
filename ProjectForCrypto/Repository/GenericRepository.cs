@@ -12,9 +12,9 @@ namespace Repository
         {
             _context = context;
         }
-        public IEnumerable<T> FindAsync(Expression<Func<T, bool>> expression)
+        public async Task<IEnumerable<T>> FindAsync(Expression<Func<T, bool>> expression)
         {
-            return _context.Set<T>().Where(expression);
+            return await _context.Set<T>().Where(expression).ToListAsync();
         }
         public async Task<IEnumerable<T>> GetAllAsync()
         {

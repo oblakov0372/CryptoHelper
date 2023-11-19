@@ -19,7 +19,7 @@ namespace ApplicationService.implementations.UserManagement
 
         public async Task<bool> Registration(RegistrationModel registrationModel)
         {
-            UserEntity user = _unitOfWork.Users.FindAsync(u => u.Email == registrationModel.Email).FirstOrDefault();
+            UserEntity user = (await _unitOfWork.Users.FindAsync(u => u.Email == registrationModel.Email)).FirstOrDefault();
             if (user != null)
                 return false;
 

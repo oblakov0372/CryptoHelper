@@ -18,6 +18,7 @@ namespace Repository
             PortfolioTokens = new PortfolioTokenRepository(_context);
             TelegramUsers = new TelegramUserRepository(_context);
             TelegramMessages = new TelegramMessageRepository(_context);
+            Deals = new DealRepository(_context);
         }
         public ITradeFutureRepository TradeFutures { get; private set; }
         public IUserRepository Users { get; private set; }
@@ -26,6 +27,7 @@ namespace Repository
         public IPortfolioTokenRepository PortfolioTokens { get; private set; }
         public ITelegramUserRepository TelegramUsers { get; private set; }
         public ITelegramMessageRepository TelegramMessages { get; private set; }
+        public IDealRepository Deals { get; private set; }
         public async Task SaveAsync()
         {
            await _context.SaveChangesAsync();

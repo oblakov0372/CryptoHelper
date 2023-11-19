@@ -3,12 +3,16 @@ from telethon.sync import TelegramClient, events
 from datetime import datetime
 import re
 import json
+
 api_id = 22332340
 api_hash = "e054c9c8b94d7737b5121aaf72399ed7"
 
 with open('config.json', 'r') as json_file:
     config = json.load(json_file)
 
+
+api_id = config["api_id"]
+api_hash = config["api_hash"]
 connection_string = config["connection_string"]
 
 connection = pyodbc.connect(connection_string)

@@ -28,7 +28,7 @@ namespace ApplicationService.implementations.TelegramUserManagement
 
         public async Task<TelegramUserDto> GetDataForTelegramUserAsync(long userId)
         {
-            var userEntity = _unitOfWork.TelegramUsers.FindAsync(u => u.Id == userId).FirstOrDefault();
+            var userEntity = (await _unitOfWork.TelegramUsers.FindAsync(u => u.Id == userId)).FirstOrDefault();
 
             var telegramUserMessages = await _telegramMessagesManagementService.GetTelegramMessagesByUserIdAsync(userId);
             var telegramUserDto = new TelegramUserDto

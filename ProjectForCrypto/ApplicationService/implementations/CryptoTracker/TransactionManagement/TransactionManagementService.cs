@@ -21,7 +21,7 @@ namespace ApplicationService.implementations.CryptoTracker.TransactionManagement
         public async Task<List<TransactionDto>> GetTransactionsAsync(int userId)
         {
             List<TransactionDto> transactions = new List<TransactionDto>();
-            foreach (var transaction in _unitOfWork.Transactions.FindAsync(p => p.UserId == userId))
+            foreach (var transaction in await _unitOfWork.Transactions.FindAsync(p => p.UserId == userId))
             {
                 transactions.Add(new TransactionDto
                 {
@@ -37,7 +37,7 @@ namespace ApplicationService.implementations.CryptoTracker.TransactionManagement
         public async Task<List<TransactionDto>> GetTransactionsByPortfolioAsync(int portfolioId)
         {
             List<TransactionDto> transactions = new List<TransactionDto>();
-            foreach (var transaction in _unitOfWork.Transactions.FindAsync(p => p.PortfolioId == portfolioId))
+            foreach (var transaction in await _unitOfWork.Transactions.FindAsync(p => p.PortfolioId == portfolioId))
             {
                 transactions.Add(new TransactionDto
                 {
@@ -52,7 +52,7 @@ namespace ApplicationService.implementations.CryptoTracker.TransactionManagement
         }
         public async Task<TransactionDto> CreateTransactionAsync(TransactionCreateModel model, int userId)
         {
-            PortfolioTokenEntity portfolioToken = _portfolioTokenManagementService
+            PortfolioTokenEntity portfolioToken = await _portfolioTokenManagementService
                                                   .GetPortfolioTokenByUserIdCoinSymbolAndPortfolioId(userId, model.CoinSymbol, model.PortfolioId);
             if (portfolioToken == null)
             {
@@ -108,7 +108,7 @@ namespace ApplicationService.implementations.CryptoTracker.TransactionManagement
                 return false;
 
 
-            PortfolioTokenEntity portfolioToken = _portfolioTokenManagementService
+            PortfolioTokenEntity portfolioToken = await _portfolioTokenManagementService
                                                  .GetPortfolioTokenByUserIdCoinSymbolAndPortfolioId(userId, model.CoinSymbol, model.PortfolioId);
 
             if (portfolioToken == null)
@@ -121,7 +121,7 @@ namespace ApplicationService.implementations.CryptoTracker.TransactionManagement
                 }, userId);
                 if (transactionForChange.CoinSymbol != model.CoinSymbol)
                 {
-                    PortfolioTokenEntity oldPortfolioToken = _portfolioTokenManagementService
+                    PortfolioTokenEntity oldPortfolioToken = await _portfolioTokenManagementService
                                                  .GetPortfolioTokenByUserIdCoinSymbolAndPortfolioId(userId, transactionForChange.CoinSymbol, model.PortfolioId);
 
                     await _portfolioTokenManagementService.UpdatePortfolioTokenAsync(new PortfolioTokenUpdateModel
@@ -141,7 +141,7 @@ namespace ApplicationService.implementations.CryptoTracker.TransactionManagement
                     Count = portfolioToken.Count + model.Count
                 }, userId);
 
-                PortfolioTokenEntity oldPortfolioToken = _portfolioTokenManagementService
+                PortfolioTokenEntity oldPortfolioToken = await _portfolioTokenManagementService
                                                  .GetPortfolioTokenByUserIdCoinSymbolAndPortfolioId(userId, transactionForChange.CoinSymbol, model.PortfolioId);
                 await _portfolioTokenManagementService.UpdatePortfolioTokenAsync(new PortfolioTokenUpdateModel
                 {
@@ -171,7 +171,7 @@ namespace ApplicationService.implementations.CryptoTracker.TransactionManagement
         {
             TransactionEntity transaction = await _unitOfWork.Transactions.GetByIdAsync(transactionId);
 
-            PortfolioTokenEntity portfolioToken = _portfolioTokenManagementService
+            PortfolioTokenEntity portfolioToken = await _portfolioTokenManagementService
                                                 .GetPortfolioTokenByUserIdCoinSymbolAndPortfolioId(transaction.UserId, transaction.CoinSymbol, transaction.PortfolioId);
 
 

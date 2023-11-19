@@ -20,6 +20,7 @@ namespace Data.Context
         public DbSet<PortfolioTokenEntity> PortfolioTokens { get; set; }
         public DbSet<TelegramMessageEntity> TelegramMessages { get; set; }
         public DbSet<TelegramUserEntity> TelegramUsers { get; set; }
+        public DbSet<DealEntity> Deals { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(_configuration.GetConnectionString("ProjectDBContext"));

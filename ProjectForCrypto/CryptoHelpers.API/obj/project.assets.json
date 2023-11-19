@@ -3927,6 +3927,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "D:\\Developing\\CRM.Microservices\\packages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

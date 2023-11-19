@@ -56,6 +56,7 @@ builder.Services.AddSingleton(jwtSettings);
 builder.Services.AddScoped<IJwtAuthenticationManager, JwtAuthenticationManager>();
 builder.Services.AddScoped<ProjectDBContext>();
 builder.Services.AddScoped<ITradeFutureManagementService, TradeFutureManagementService>();
+builder.Services.AddScoped<IDealRepository, DealRepository>();
 builder.Services.AddScoped<IUserManagementService, UserManagementService>();
 builder.Services.AddScoped<IPortfolioManagementService,PortfolioManagementService>();
 builder.Services.AddScoped<ITransactionManagementService, TransactionManagementService>();

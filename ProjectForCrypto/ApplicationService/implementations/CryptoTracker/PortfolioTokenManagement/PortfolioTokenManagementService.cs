@@ -22,7 +22,7 @@ namespace ApplicationService.implementations.CryptoTracker.PortfolioTokenManagem
             //get token for coinmarketcap with currentPrice + percentage24H
             List<CryptoModel> tokensForCoinmarketCap = _cryptoCollectorManagementService.GetCryptocurrencies();
             List<PortfolioTokenDto> portfolioTokens = new List<PortfolioTokenDto>();
-            foreach (var portfolioToken in _unitOfWork.PortfolioTokens.FindAsync(p => p.UserId == userId))
+            foreach (var portfolioToken in await _unitOfWork.PortfolioTokens.FindAsync(p => p.UserId == userId))
             {
                 var tokenForCoinMarketCap = tokensForCoinmarketCap.FirstOrDefault(t => t.Symbol == portfolioToken.CoinSymbol);
                 if (tokenForCoinMarketCap != null)
@@ -49,7 +49,7 @@ namespace ApplicationService.implementations.CryptoTracker.PortfolioTokenManagem
             //get token for coinmarketcap with currentPrice + percentage24H
             List<CryptoModel> tokensForCoinmarketCap = _cryptoCollectorManagementService.GetCryptocurrencies();
             List<PortfolioTokenDto> portfolioTokens = new List<PortfolioTokenDto>();
-            foreach (var portfolioToken in _unitOfWork.PortfolioTokens.FindAsync(p => p.UserId == userId && p.PortfolioId == portfolioId))
+            foreach (var portfolioToken in await _unitOfWork.PortfolioTokens.FindAsync(p => p.UserId == userId && p.PortfolioId == portfolioId))
             {
                 var tokenForCoinMarketCap = tokensForCoinmarketCap.FirstOrDefault(t => t.Symbol == portfolioToken.CoinSymbol);
                 if (tokenForCoinMarketCap != null)
@@ -70,9 +70,9 @@ namespace ApplicationService.implementations.CryptoTracker.PortfolioTokenManagem
             }
             return portfolioTokens;
         }
-        public PortfolioTokenEntity GetPortfolioTokenByUserIdCoinSymbolAndPortfolioId(int userId, string coinSymbol, int portfolioId)
+        public async Task<PortfolioTokenEntity> GetPortfolioTokenByUserIdCoinSymbolAndPortfolioId(int userId, string coinSymbol, int portfolioId)
         {
-            return _unitOfWork.PortfolioTokens.FindAsync(pt => pt.CoinSymbol == coinSymbol && pt.UserId == userId && pt.PortfolioId == portfolioId).FirstOrDefault();
+            return (await _unitOfWork.PortfolioTokens.FindAsync(pt => pt.CoinSymbol == coinSymbol && pt.UserId == userId && pt.PortfolioId == portfolioId)).FirstOrDefault();
         }
         public async Task<PortfolioTokenDto> CreatePortfolioTokenAsync(PortfolioTokenCreateModel model, int userId)
         {

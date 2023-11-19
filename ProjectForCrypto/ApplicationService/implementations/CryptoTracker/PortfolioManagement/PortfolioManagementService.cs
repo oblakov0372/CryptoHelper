@@ -16,7 +16,7 @@ namespace ApplicationService.implementations.CryptoTracker.Portfolio
         public async Task<List<PortfolioDto>> GetPortfoliosAsync(int userId)
         {
             List<PortfolioDto> portfolios = new List<PortfolioDto>();
-            foreach (var portfolio in _unitOfWork.Portfolios.FindAsync(p => p.UserId == userId))
+            foreach (var portfolio in await _unitOfWork.Portfolios.FindAsync(p => p.UserId == userId))
             {
                 portfolios.Add(new PortfolioDto
                 {
